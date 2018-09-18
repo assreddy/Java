@@ -28,8 +28,8 @@ public class ConvertNumberToRomanNumaric {
 
     for(int i : bases){
       while(num>=i){
-        result += map.get(i);
-        num -=i;
+        result = result + map.get(i);
+        num = num - i;
       }
     }
     return result;
