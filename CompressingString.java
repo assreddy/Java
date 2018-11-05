@@ -1,27 +1,30 @@
-public class CompressingString {
+package StringProblems;
 
-    public static void main(String args[]) {
+public class CompressedStrings {
 
-        System.out.println("Copmpressing String");
-        String inputString = "aabcccccaaa";
+  public static void main(String args[]){
+    String str ="aabbccccbbaaba";
+    System.out.println(compressedString(str));
 
+  }
+  public static String compressedString(String str){
+    StringBuilder sb = new StringBuilder();
 
-        char[] chars = inputString.toCharArray();
-
-        StringBuilder sb = new StringBuilder();
-         int count = 1;
-         char prev = chars[0];
-
-         for( int i =1; i< chars.length-1; i++){
-             char current = chars[i];
-             if(current == prev){
-                 count++;
-             }else {
-                 sb.append(prev).append(count);
-                 count =1;
-             }
-             prev = current;
-         }
-        System.out.println(sb.append(prev).append(count).toString());
+    int count = 1;
+    int j = 0;
+    String compString = "";
+    for(int i=1; i< str.length(); i++){
+      char c = str.charAt(i);
+      if(str.charAt(j) == c){
+        count++;
+      } else {
+        compString = compString+str.charAt(j)+count;
+        count=1;
+      }
+      j = i;
+      System.out.println(c);
     }
+    compString=compString+str.charAt(str.length()-1)+count;
+    return  compString;
+  }
 }
